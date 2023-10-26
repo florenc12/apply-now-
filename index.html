@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html >
+<head>  
+    <style>
+        /* this is internal css part for the web to be more presentable   */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#8eb6db; 
+            text-align: center;
+
+        }
+
+        header {
+            background-color:BLACK;
+            color: white;
+            text-align: center;
+            padding: 5px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        form button {
+            background-color: #090c0f;
+            color: #9ac2e2;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            max-width: 30%;
+            height: auto;
+        }
+    </style>
+</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation</title>
+</head>
+<body><div class="body">
+    <header>
+    <div class="header">
+    <h1>Limkokwing University of Creative Technology Course Recommendation</h1>
+    </div></header>
+    <form id="gradeForm"><br><div class="form input">
+        <h1>Enter your LGCSE grades for the following subjects </h1>
+        <label for="maths">Maths:</label>
+        <input type="text" id="maths" required><br><br>
+
+        <label for="business">Business Studies:</label>
+        <input type="text" id="business" required><br><br>
+
+        <label for="english">English:</label>
+        <input type="text" id="english" required><br><br>
+
+        <button type="button" onclick="Programrem()">Recommend Program</button></div>
+    </form>
+
+    <div id="recommendation"></div>
+
+    <script>
+
+    /*this is the javascript part, where the conditions are for be set for the 
+    user to be recommmented the right programm according to the code*/
+
+        function Programrem() {
+            const mat_grade = document.getElementById('maths').value.toUpperCase();
+            const bus_grade = document.getElementById('business').value.toUpperCase();
+            const eng_grade = document.getElementById('english').value.toUpperCase();
+            const reco_container = document.getElementById('recommendation');
+
+            if (mat_grade=='a' || mat_grade== 'A'|| mat_grade=='a*' || mat_grade== 'A*' ) 
+            {
+                reco_container.innerHTML = `
+                    <h2>Recommended Program: Information Technology</h2>
+                    <img src="IT.jpeg" alt="Information Technology">
+                    <p><h3>What is information technology?</h3>
+                    Information technology (IT) is the use of any computers, storage, networking and other physical devices, infrastructure and<br> 
+                    processes to create, process, store, secure and exchange all forms of electronic data. Typically, IT is used in the context<br>
+                    of business operations, as opposed to technology used for personal or entertainment purposes. The commercial use of IT <br>
+                    encompasses both computer technology and telecommunications
+                        <h4>Diploma</h4>
+                        Diploma in Business Information Technology<br>
+                        Diploma in Information Technology<br>
+                    <h4>Degree</h4>
+                        Bachelor of Science in Business Information Technology<br>
+                        Bachelor of Science in Information Technology<br>
+                        Bachelor of Science in Software<br>
+                        </p>
+                `;
+            } else if ((bus_grade=='a'  && eng_grade=='a') || (bus_grade=='b' && eng_grade=='b') ||(bus_grade=='a*'  && eng_grade=='a' ) ) 
+            {
+                reco_container.innerHTML = `
+                    <h2>Recommended Program: Business Management</h2>
+                    <img src="BU.jpeg" alt="Business Management">
+                    <p><h3>What is Business Management?</h3>
+                        Business management is the process of planning, organizing, directing, and controlling the activities of a business or <br>
+                        organization to achieve its goals and objectives. It involves overseeing all aspects of a business, from finance and <br>
+                        operations to marketing and human resources. Business managers must be skilled in leadership, communication, and <br>
+                        problem-solving, and must be able to make strategic decisions that drive the success of the organization.<br>
+                        <h4>Diploma</h4>
+                        Diploma in Business Management<br>
+                        Diploma in Events Management<br>
+                        Diploma in Retail Management<br>
+                    <h4>Degree</h4>
+                        Bachelor of Arts in Human Resource Management<br>
+                        Bachelor of Arts in Tourism Management<br>
+                        Bachelor of Business in Entrepreneurship<br>
+                        Bachelor of Business in International Business<br></p>
+                `;
+            } else if ((eng_grade=='b' || eng_grade=='B') ||(eng_grade=='a' || eng_grade=='A')||(eng_grade=='a*' || eng_grade=='A*'))
+            {
+                reco_container.innerHTML = `
+                    <h2>Recommended Program: Communication Studies</h2>
+                    <img src="com.png" alt="Communication Studies">
+                    <p><h3>What is communication Studies?</h3>
+                        Communication studies is a study of how we communicate differently to various audiences/users and communities. It <br>
+                        understands that communication is social, political, and media-based, and occurs in different contexts. Communication <br>
+                        studies is an interdisciplinary major that consists of a number of interrelated subfields: popular communication,<br>
+                         science communication, health communication, political communication (including the study of news and journalism) <br>
+                         and philosophy of communication. Each subfield explains specific communication problems, but they are linked by a <br>
+                         shared set of overlapping academic debates. These debates include: qualitative and quantitative methods (including the<br>
+                        effects tradition and audience studies), critical theory, cultural studies, textual analysis, history, creative <br>
+                        industries, and media theory (media ecologies and medium theory). <br>
+                        <h4>Diploma</h4>
+                        Diploma in Broadcasting (Radio & TV)<br>
+                        Diploma in Film Production<br>
+                        Diploma in Journalism & Media<br>
+                    <h4>Degree</h4>
+                        Bachelor of Arts (Hons) in Digital Film & Television<br>
+                        Bachelor of Arts in Broadcasting & Journalism<br>
+                        Bachelor of Arts in Digital Film & Television<br>
+                        Bachelor of Arts in Professional Communication<br></p>
+                `;
+            } else {
+                reco_container.innerHTML = '<p><h1>Sorry, you do not qualify for any of the  programs.</h1></p>';
+            }
+        }
+    </script>
+    </div>
+</body>
+</html>
